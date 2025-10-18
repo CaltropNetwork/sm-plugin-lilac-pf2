@@ -114,8 +114,9 @@ public void OnPluginStart()
 
 	HookEvent("player_spawn", event_teleported, EventHookMode_Post);
 	HookEvent("player_changename", event_namechange, EventHookMode_Post);
-
-	HookEntityOutput("trigger_teleport", "OnEndTouch", map_teleport);
+	
+    // PF2 does not use OnEndTouch, this causes the server to crash.
+	// HookEntityOutput("trigger_teleport", "OnEndTouch", map_teleport);
 
 	/* Default ban lengths are -1. (Global ConVar). */
 	for (int i = 0; i < CHEAT_MAX; i++)
